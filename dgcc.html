@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeadlyGoofer.cc</title>
+<link rel="icon" href="/storage/emulated/0/Download/DG.CCHtml/favicon.ICO">
+<style>
+body {
+margin: 0;
+padding: 0;
+background-color: #121212;
+color: white;
+font-family: 'Arial', sans-serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100vh;
+}
+
+h1 {
+font-size: 3em;
+background: linear-gradient(90deg, violet, purple);
+background-size: 200% 200%;
+animation: gradient 5s linear infinite;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+margin-top: 50px;
+text-align: center;
+}
+
+@keyframes gradient {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}
+
+.image-container {
+position: relative;
+margin: 20px 0;
+perspective: 1000px;
+}
+
+.image-container img {
+width: 500px; /* увеличение размера изображения */
+border: 5px solid purple;
+border-radius: 10px;
+transition: transform 0.1s ease-in-out;
+box-shadow: 0 0 20px purple; /* неоновая обводка */
+}
+
+button {
+margin: 10px;
+padding: 10px 20px;
+font-size: 1.2em;
+border: 2px solid transparent;
+background: none;
+color: white;
+cursor: pointer;
+border-image: linear-gradient(45deg, violet, purple);
+border-image-slice: 1;
+outline: none;
+position: relative;
+overflow: hidden;
+box-shadow: 0 0 10px violet, 0 0 20px purple; /* неоновая обводка */
+}
+
+button:after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, violet, purple);
+transform: translateX(-100%);
+transition: transform 0.3s ease;
+}
+
+button:hover:after {
+transform: translateX(0);
+}
+
+button:focus:after {
+animation: wave 0.5s forwards;
+}
+
+button:hover {
+color: white;
+}
+
+.creators {
+color: darkgray;
+margin-bottom: 20px;
+}
+
+.info {
+font-size: 0.8em;
+color: darkgray;
+margin-top: 20px;
+}
+
+/* Модальное окно */
+.modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.8);
+align-items: center;
+justify-content: center;
+z-index: 10;
+}
+
+.modal-content {
+background-color: #222;
+padding: 20px;
+border-radius: 10px;
+text-align: center;
+position: relative;
+box-shadow: 0 0 20px purple; /* неоновая обводка */
+}
+
+.modal-content .close {
+position: absolute;
+top: 10px;
+right: 20px;
+color: white;
+cursor: pointer;
+}
+
+.modal-content h2 {
+background: linear-gradient(90deg, violet, purple);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.modal-button {
+margin: 5px;
+padding: 10px 20px;
+font-size: 1em;
+border: 2px solid transparent;
+background: none;
+color: white;
+cursor: pointer;
+border-image: linear-gradient(45deg, violet, purple);
+border-image-slice: 1;
+outline: none;
+position: relative;
+overflow: hidden;
+box-shadow: 0 0 10px violet, 0 0 20px purple; /* неоновая обводка */
+}
+
+.modal-button:after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, violet, purple);
+transform: translateX(-100%);
+transition: transform 0.3s ease;
+}
+
+.modal-button:hover:after {
+transform: translateX(0);
+}
+
+.modal-button:focus:after {
+animation: wave 0.5s forwards;
+}
+
+.modal-button:hover {
+color: white;
+}
+
+/* Иконка в углу */
+.logo {
+position: absolute;
+top: 10px;
+left: 10px;
+display: flex;
+align-items: center;
+}
+
+.logo img {
+width: 40px;
+height: 40px;
+margin-right: 10px;
+border-radius: 32%; /* Округление иконки */
+}
+
+.logo h2 {
+margin: 0;
+font-size: 1.2em;
+background: linear-gradient(90deg, violet, purple);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+</style>
+</head>
+<body>
+
+<div class="logo">
+<img src="https://cdn.discordapp.com/attachments/1276883482433421394/1284480405004619808/product-image.jpg?ex=66e6c919&is=66e57799&hm=926669de621418311a5b09e3d7bddb9d4f1e6acdbe8544301014dad1002151c5&" alt="Logo">
+<h2>DeadlyGoofer</h2>
+</div>
+
+<h1>DeadlyGoofer.cc</h1>
+
+<div class="image-container">
+<img src="https://cdn.discordapp.com/attachments/1252595125196947488/1261333926471925811/image.png?ex=66e64b82&is=66e4fa02&hm=2d6c460ef12e71ec88536cf4307cf85d8a0c5db95002740011372ce5bb8d1281&" alt="Product Image" id="product-image">
+</div>
+<button class="download-button" onclick="window.location.href='https://github.com/FileInstaller/DGFIX'">Download</button>
+<button class="info-button" onclick="toggleModal()">Social</button>
+
+<div class="creators">
+Подпишитесь на Discord
+</div>
+
+<!-- Модальное окно -->
+<div class="modal" id="infoModal">
+<div class="modal-content">
+<span class="close" onclick="toggleModal()">&times;</span>
+<h2>О клане DeadlyGoofer</h2>
+<p>DeadlyGoofer - это лучший клан! Присоединяйтесь к нам, чтобы стать частью нашего великолепного сообщества.</p>
+<button class="modal-button" onclick="window.location.href='https://www.tiktok.com/@ewinnery?_t=8piJTvenN8T&_r=1'">Tiktok</button>
+<button class="modal-button" onclick="window.location.href='https://t.me/DeadlyGooferRBLX'">Telegram</button>
+<button class="modal-button" onclick="window.location.href='https://discord.gg/nPEjUH6rn3'">Discord</button>
+</div>
+</div>
+
+<div class="info">
+© 2024 DeadlyGoofer.cc Official
+</div>
+
+<script>
+function redirectWithAnimation(url) {
+const button = document.querySelector('.join-button');
+button.classList.add('active');
+setTimeout(() => {
+window.location.href = url;
+button.classList.remove('active');
+}, 500);
+}
+
+const imageContainer = document.querySelector('.image-container');
+const image = document.getElementById('product-image');
+
+imageContainer.addEventListener('mousemove', (e) => {
+const rect = imageContainer.getBoundingClientRect();
+const x = (e.clientX - rect.left) / rect.width - 0.5;
+const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+image.style.transform = `rotateY(${x * -30}deg) rotateX(${y * 30}deg)`; /* поворачивание к курсору */
+});
+
+imageContainer.addEventListener('mouseleave', () => {
+image.style.transform = 'rotateY(0deg) rotateX(0deg)';
+});
+
+function toggleModal() {
+const modal = document.getElementById('infoModal');
+if (modal.style.display === "none" || modal.style.display === "") {
+modal.style.display = "flex";
+modal.style.opacity = 0;
+modal.style.animation = "modalFadeIn 0.5s forwards";
+modal.style.opacity = 1;
+} else {
+modal.style.animation = "modalFadeOut 0.5s forwards";
+modal.style.opacity = 0;
+setTimeout(() => {
+modal.style.display = "none";
+}, 500);
+}
+}
+</script>
+
+</body>
+</html>
