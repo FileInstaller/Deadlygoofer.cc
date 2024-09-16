@@ -229,12 +229,33 @@ background: linear-gradient(90deg, violet, purple);
 <h2>Information & Social</h2>
 <p>DeadlyGoofer - Средние имбовые скрипты для плейсов с имбовыми обходами. у нас есть скрипты на 
 множество плейсов </p>
-<button class="modal-button" onclick="window.location.href='https://www.tiktok.com/@ewinnery?_t=8piJTvenN8T&_r=1'">Tiktok</button>
-<button class="modal-button" onclick="window.location.href='https://t.me/DeadlyGooferRBLX'">Telegram</button>
-<button class="modal-button" onclick="window.location.href='https://discord.gg/nPEjUH6rn3'">Discord</button>
-<button class="modal-button" onclick="window.location.href='https://funpay.com/users/9660555/'">Funpay</button>
-</div>
-</div>
+<style>
+<style>
+.modal-button {
+  display: inline-block;
+  width: 100px; /* Задайте нужный размер кнопки */
+  height: 100px; /* Задайте такой же размер для высоты, чтобы получить квадрат */
+  padding: 0;
+  margin: 10px; /* Опционально: отступы между кнопками */
+  overflow: hidden;
+}
+
+.modal-button img {
+  width: 100%; /* Подгоняем ширину изображения под ширину кнопки */
+  height: 100%; /* Подгоняем высоту изображения под высоту кнопки */
+  object-fit: contain; /* Делаем так, чтобы изображение полностью вписывалось в кнопку */
+}
+</style>
+
+<button class="modal-button" onclick="window.location.href='https://t.me/DeadlyGooferRBLX'">
+  <img src="https://raw.githubusercontent.com/FileInstaller/DGFIX/Website/telegram.png" alt="Telegram"/>
+</button>
+<button class="modal-button" onclick="window.location.href='https://discord.gg/nPEjUH6rn3'">
+  <img src="https://raw.githubusercontent.com/FileInstaller/DGFIX/Website/discord.png" alt="Discord"/>
+</button>
+<button class="modal-button" onclick="window.location.href='https://funpay.com/users/9660555/'">
+  <img src="https://raw.githubusercontent.com/FileInstaller/DGFIX/Website/OIP-fotor-bg-remover-20240916182623.png" alt="Funpay"/>
+</button>
 
 <div class="info">
 © 2024 DeadlyGoofer.cc Official
